@@ -59,7 +59,7 @@ impl UserRAPPOR {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-  let apii = KarlModuleSDK::new();
+  let api = KarlModuleSDK::new();
 
   let input = api.get_triggered().await?.unwrap();
   let output = if fastrand::bool() {
