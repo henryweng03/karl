@@ -21,7 +21,7 @@ struct UserRAPPOR {
 impl UserRAPPOR {
   fn new(actual_response: u8, f: f32, q: f32, p: f32) -> Self {
     let mut rng = rand::thread_rng();
-    let rand = rng.gen_range(0.0, 1.0);
+    let rand = rng.gen_range(0.0..1.0);
     let mem_rep;
     if rand < f * 0.5 {
       mem_rep = 1;
@@ -38,7 +38,7 @@ impl UserRAPPOR {
     let result;
     let mut rng = rand::thread_rng();
     if self.memoized_response == 1 {
-      if rng.gen_range(0.0, 1.0) < self.q {
+      if rng.gen_range(0.0..1.0) < self.q {
         result = 1;
       } 
       else {
@@ -46,7 +46,7 @@ impl UserRAPPOR {
       }
     } 
     else {
-      if rng.gen_range(0.0, 1.0) < self.p { 
+      if rng.gen_range(0.0..1.0) < self.p { 
         result = 1;
       } 
       else {
